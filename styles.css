@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: "Kumbh Sans", sans-serif; 
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .navbar__container {
@@ -17,6 +17,7 @@
     margin: 0 auto;
     padding: 0 50px;
     position: fixed;
+    overflow: hidden;
 }
 
 .navbar__logo {
@@ -67,5 +68,62 @@
 .button {
     background: #1b674a;
     padding: 10px 20px;
-    
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    color: #15b856;
+    transition: all 0.3s ease; 
+} 
+
+.navbar__toggle {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .navbar__toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50px;
+        transform: translateY(-50%);
+        color: #fff;
+        z-index: 10;
+        font-size: 1.5rem;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100% - 80px);
+        opacity: 0;
+        transition: all 0.5s ease;
+        background: #131313;
+        z-index: 10;
+        margin: 0;
+    }
+
+    .navbar__menu.active {
+        left: 0;
+        opacity: 1;
+    }
+
+    .navbar__item {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
