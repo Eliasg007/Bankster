@@ -9,3 +9,28 @@ menu.addEventListener("click", function () {
 // Function to make logo move
 const logos = document.querySelector(".rotating-logos__track").cloneNode(true);
 document.querySelector(".rotating-logos").appendChild(logos);
+
+// Function to toggle the monthly/yearly plan
+function switchPricing() {
+    const checkbox = document.getElementById("pricing-toggle-checkbox");
+    const monthlyPrices = document.querySelectorAll(".monthly-price");
+    const yearlyPrices = document.querySelectorAll(".yearly-price");
+    const yearlyDiscounts = document.querySelectorAll(".save-percentage"); // renamed for clarity
+
+    if (checkbox.checked) {
+        monthlyPrices.forEach((price) => price.classList.add("hidden"));
+        yearlyPrices.forEach((price) => price.classList.remove("hidden"));
+        yearlyDiscounts.forEach((discount) => discount.style.display = "inline");
+    } else {
+        monthlyPrices.forEach((price) => price.classList.remove("hidden"));
+        yearlyPrices.forEach((price) => price.classList.add("hidden"));
+        yearlyDiscounts.forEach((discount) => discount.style.display = "none");
+    }
+}
+
+
+window.addEventListener("load", () => {
+    const yearElement = document.getElementById("year");
+    const currentYear = new Date().getFullYear();
+    yearElement.textContent = currentYear;
+});
